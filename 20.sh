@@ -27,4 +27,3 @@ then
 else
     echo "date error"
 fi
-sdfsdf
