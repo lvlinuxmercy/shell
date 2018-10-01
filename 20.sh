@@ -25,5 +25,5 @@ then
 	echo "date error"
     fi
 else
-    echo "data error"
+    echo "date error"
 fi
