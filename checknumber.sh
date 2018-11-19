@@ -1,6 +1,6 @@
 #!/bin/bash
 read -p "please input serverkey: " n
-if [ $n -ne 1011 ] || [ $n -ne 1022 ] || [ $n -ne 1021 ] [ $n -ne 2001 ] || [ $n -ne 2002 ];then
+if [ $n -ne 1011 ] && [ $n -ne 1022 ] && [ $n -ne 1021 ] && [ $n -ne 2001 ] && [ $n -ne 2002 ];then
    echo "serverkey is not exit,please input 1011 1021 1022 2001 2002" && exit
 fi
 read -p "single or many ?please input 1 or 2: " m
