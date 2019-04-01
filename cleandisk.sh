@@ -19,12 +19,12 @@ t11=`date -d "11 days ago" +%Y-%m-%d`
 t12=`date -d "12 days ago" +%Y-%m-%d`
 if [ $diskused -gt "85" ];then
 	cd /utxt/soft/dm_as/proglog
-	[ -f $t12 ]||rm -rf aslianjia.log.$t12*
-	[ -f $t11 ]||rm -rf aslianjia.log.$t11*
-  	[ -f $t10 ]||rm -rf aslianjia.log.$t10*
+	rm -rf aslianjia.log.$t12*
+	rm -rf aslianjia.log.$t11*
+  	rm -rf aslianjia.log.$t10*
 	cd /utxt/soft/dsf-as_axb/prolog
-	[ -f $t12 ]||rm -rf as.log.$t12*
-	[ -f $t11 ]||rm -rf as.log.$t11*
-	[ -f $t10 ]||rm -rf as.log.$t10*
+	rm -rf as.log.$t12*
+	rm -rf as.log.$t11*
+	rm -rf as.log.$t10*
 fi
 
