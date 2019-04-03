@@ -11,10 +11,16 @@
 
 
 # 检查磁盘使用率，当大于85%时，清理三天日志
-# 2019-3-31
+# 2019-4-03
+#!/bin/bash
 diskused=`df -h |grep utxt |awk '{print $5}' |cut -c 1-2`
-echo $diskused > /tmp/disk.txt
+diskused1=`df -h |grep utxt |awk '{print $5}'`
+date=`date +%F-%H:%M`
+echo $date >> /tmp/disk.txt
+echo "before clean is $diskused" >> /tmp/disk.txt
 t10=`date -d "10 days ago" +%Y-%m-%d`
+t9=`date -d "9 days ago" +%Y-%m-%d`
+t8=`date -d "8 days ago" +%Y-%m-%d`
 t11=`date -d "11 days ago" +%Y-%m-%d`
 t12=`date -d "12 days ago" +%Y-%m-%d`
 if [ $diskused -gt "85" ];then
@@ -22,9 +28,15 @@ if [ $diskused -gt "85" ];then
 	rm -rf aslianjia.log.$t12*
 	rm -rf aslianjia.log.$t11*
   	rm -rf aslianjia.log.$t10*
+  	rm -rf aslianjia.log.$t8*
+  	rm -rf aslianjia.log.$t9*
 	cd /utxt/soft/dsf-as_axb/prolog
+	rm -rf as.log.$t8*
+	rm -rf as.log.$t9*
 	rm -rf as.log.$t12*
 	rm -rf as.log.$t11*
 	rm -rf as.log.$t10*
 fi
+diskused2=`df -h |grep utxt |awk '{print $5}'`
+echo "after clean is $diskused2" >> /tmp/disk.txt
 
